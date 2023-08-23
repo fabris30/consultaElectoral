@@ -1,0 +1,33 @@
+.buscar {
+    padding: 1vw;
+    font-size: 1vw;
+    border: 1px solid #ccc;
+    border-radius: 0.5vw;
+    outline: none;
+    margin-right: 0.5vw;
+}
+.div{
+    display: flex;
+    align-items: stretch;
+    
+    
+}
+
+//desktop
+@media (min-width: 1200px) {}
+
+//only tablet portrait
+@media only screen and (min-width: 768px) and (max-width: 1200px) and (orientation: portrait) {
+  
+
+}
+
+//only tablet landscape
+@media only screen and (min-width: 768px) and (max-width: 1200px) and (orientation: landscape) {}
+
+//only phone
+@media (max-width: 576px) {
+    .buscar{
+        font-size: 0.8rem;
+    }
+}

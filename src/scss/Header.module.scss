@@ -1,0 +1,60 @@
+.header {
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4vw 2vw;
+    background-color: rgb(85, 121, 241);
+    color: #fff;
+}
+
+.nav {
+    color: #070707;
+    padding: 1vw 1vw;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2vw;
+    transition: all .3s ease-in;
+
+    &:hover {
+        background-color: rgb(74, 82, 87);
+        transition: all .3s ease-in;
+        color: white;
+        border-radius: 1vw;
+    }
+
+}
+
+//big desktop
+@media (min-width: 1920px) {
+    .header {
+        padding: 10rem 2rem;
+
+    }
+}
+
+//desktop
+@media (min-width: 1200px) {}
+
+//only tablet portrait
+@media only screen and (min-width: 768px) and (max-width: 1200px) and (orientation: portrait) {
+    .nav {
+        font-size: 2rem;
+    }
+
+}
+
+//only tablet landscape
+@media only screen and (min-width: 768px) and (max-width: 1200px) and (orientation: landscape) {}
+
+//only phone
+@media (max-width: 576px) {
+    .header {
+        padding: 1rem 1rem;
+
+    }
+
+    .nav {
+        font-size: 1rem;
+    }
+}
