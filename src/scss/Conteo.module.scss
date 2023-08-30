@@ -1,0 +1,28 @@
+.Registro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.formulario {
+    width: 50%;
+}
+
+//desktop
+@media (min-width: 1200px) {}
+
+//only tablet portrait
+@media only screen and (min-width: 768px) and (max-width: 1200px) and (orientation: portrait) {}
+
+//only tablet landscape
+@media only screen and (min-width: 768px) and (max-width: 1200px) and (orientation: landscape) {}
+
+//only phone
+@media (max-width: 576px) {
+    .formulario {
+        width: 100%;
+    }
+
+}

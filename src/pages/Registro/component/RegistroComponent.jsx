@@ -6,7 +6,9 @@ const RegistroComponent = () => {
     const [cedula, setCedula] = useState('');
     const [lugar, setLugar] = useState('');
     const [mesa, setMesa] = useState('');
-    const [profesion, setProfesion] = useState('');
+    const [direccion, setDireccion] = useState('');
+    const [telefono, setTelefono] = useState('');
+    
 
 
     const handleSubmit = (event) => {
@@ -17,7 +19,8 @@ const RegistroComponent = () => {
         console.log('Cedula:', cedula);
         console.log('Lugar:', lugar);
         console.log('Mesa:', mesa);
-        console.log('Profesion', profesion);
+        console.log('Direccion', direccion);
+        console.log('Telefono', telefono);
     };
     return (
         <Fragment>
@@ -72,7 +75,7 @@ const RegistroComponent = () => {
                         <div className="col-12 col-md-6">
                             <label htmlFor="mesa">Numero de la Mesa:</label>
                             <input
-                                type="number"
+                                type="text"
                                 id="mesa"
                                 className="form-control"
                                 value={mesa}
@@ -81,13 +84,23 @@ const RegistroComponent = () => {
                             />
                         </div>
                         <div className="col-12 col-md-6">
-                            <label htmlFor="mesa">Profesion:</label>
+                            <label htmlFor="direccion">Direccion:</label>
                             <input
                                 type="text"
-                                id="profesion"
+                                id="direccion"
                                 className="form-control"
-                                value={profesion}
-                                onChange={(e) => setProfesion(e.target.value)}
+                                value={direccion}
+                                onChange={(e) => setDireccion(e.target.value)}
+                            />
+                        </div>
+                        <div className="col-12 col-md-6">
+                            <label htmlFor="telefono">Telefono:</label>
+                            <input
+                                type="text"
+                                id="telefono"
+                                className="form-control"
+                                value={telefono}
+                                onChange={(e) => setTelefono(e.target.value)}
                             />
                         </div>
 

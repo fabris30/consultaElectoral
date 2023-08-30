@@ -5,6 +5,8 @@ import BasePages from './pages/Base/BasePages';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import RegistroPages from './pages/Registro/RegistroPages';
 import TablaPages from './pages/Tabla/TablaPages';
+import ConteoPages from './pages/Conteo/ConteoPages';
+import ResultadoConteoPages from './pages/Resultados/ResultadoConteoPages';
 
 function App() {
   const router = createBrowserRouter([
@@ -24,7 +26,16 @@ function App() {
     {
       path: "/consulta",
       element: <TablaPages />
+    },
+    {
+      path: "/conteo",
+      element: <ConteoPages />
+    },
+    {
+      path: "/resultado",
+      element: <ResultadoConteoPages />
     }
+      
   ])
   return (
     <div>

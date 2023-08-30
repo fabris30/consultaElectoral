@@ -17,6 +17,7 @@ const TablaPages = () => {
             <section>
                 <div className="container">
                     <div className="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                        <FilterComponent nombre='Consultar por Grupo'/>
                         <FilterComponent nombre='Consultar por Zona'/>
                         <FilterComponent nombre='Consultar por Meza'/>
                         <ResultadoComponent />

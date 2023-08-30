@@ -10,6 +10,7 @@ const HeaderComponent = () => {
                 </div>
                 <nav>
                     <a href="/registro" className={style.nav}>Registro</a >
+                    <a href="/conteo" className={style.nav}>Conteo</a >
                     <a href="/consulta" className={style.nav}>Consulta</a>
                 </nav>
             </header>

@@ -12,8 +12,10 @@ const TablaComponent = () => {
                             <th scope="col">Cedula</th>
                             <th scope="col">Nombres y Apellidos</th>
                             <th scope="col">Lugar de votacion</th>
-                            <th scope="col">Numero de la mesa</th>
-                            <th scope="col">Profesion</th>
+                            <th scope="col"># mesa</th>
+                            <th scope="col">Direccion</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Grupo</th>
                             <th scope="col">Opciones</th>
                         </tr>
                     </thead>
@@ -24,7 +26,13 @@ const TablaComponent = () => {
                             <td>Frank Marquez</td>
                             <td>Rada</td>
                             <td>5</td>
-                            <td>Ingeniero</td>
+                            <td>Camino Real</td>
+                            <td>3102022130</td>
+                            <td> 
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" />
+                               </div>
+                           </td>
                             <td>
                                 <button type="button" className="btn btn-primary me-2">Editar</button>
                                 <button type="button" className="btn btn-danger ">Eliminar</button>
@@ -36,7 +44,13 @@ const TablaComponent = () => {
                             <td>Frank Marquez</td>
                             <td>Rada</td>
                             <td>5</td>
-                            <td>Ingeniero</td>
+                            <td>Camino Real</td>
+                            <td>3102022130</td>
+                            <td> 
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" />
+                               </div>
+                           </td>
                             <td>
                                 <button type="button" className="btn btn-primary me-2">Editar</button>
                                 <button type="button" className="btn btn-danger ">Eliminar</button>
@@ -48,7 +62,13 @@ const TablaComponent = () => {
                             <td>Frank Marquez</td>
                             <td>Rada</td>
                             <td>5</td>
-                            <td>Ingeniero</td>
+                            <td>Camino Real</td>
+                            <td>3102022130</td>
+                            <td> 
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" />
+                               </div>
+                           </td>
                             <td>
                                 <button type="button" className="btn btn-primary me-2">Editar</button>
                                 <button type="button" className="btn btn-danger ">Eliminar</button>
@@ -60,7 +80,13 @@ const TablaComponent = () => {
                             <td>Frank Marquez</td>
                             <td>Rada</td>
                             <td>5</td>
-                            <td>Ingeniero</td>
+                            <td>Camino Real</td>
+                            <td>3102022130</td>
+                            <td> 
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" />
+                               </div>
+                           </td>
                             <td>
                                 <button type="button" className="btn btn-primary me-2">Editar</button>
                                 <button type="button" className="btn btn-danger ">Eliminar</button>
@@ -72,7 +98,13 @@ const TablaComponent = () => {
                             <td>Frank Marquez</td>
                             <td>Rada</td>
                             <td>5</td>
-                            <td>Ingeniero</td>
+                            <td>Camino Real</td>
+                            <td>3102022130</td>
+                            <td> 
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" />
+                               </div>
+                           </td>
                             <td>
                                 <button type="button" className="btn btn-primary me-2">Editar</button>
                                 <button type="button" className="btn btn-danger ">Eliminar</button>
@@ -84,7 +116,13 @@ const TablaComponent = () => {
                             <td>Frank Marquez</td>
                             <td>Rada</td>
                             <td>5</td>
-                            <td>Ingeniero</td>
+                            <td>Camino Real</td>
+                            <td>3102022130</td>
+                            <td> 
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" />
+                               </div>
+                           </td>
                             <td>
                                 <button type="button" className="btn btn-primary me-2">Editar</button>
                                 <button type="button" className="btn btn-danger ">Eliminar</button>
@@ -96,7 +134,13 @@ const TablaComponent = () => {
                             <td>Frank Marquez</td>
                             <td>Rada</td>
                             <td>5</td>
-                            <td>Ingeniero</td>
+                            <td>Camino Real</td>
+                            <td>3102022130</td>
+                            <td> 
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" />
+                               </div>
+                           </td>
                             <td>
                                 <button type="button" className="btn btn-primary me-2">Editar</button>
                                 <button type="button" className="btn btn-danger ">Eliminar</button>
@@ -108,7 +152,13 @@ const TablaComponent = () => {
                             <td>Frank Marquez</td>
                             <td>Rada</td>
                             <td>5</td>
-                            <td>Ingeniero</td>
+                            <td>Camino Real</td>
+                            <td>3102022130</td>
+                            <td> 
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" />
+                               </div>
+                           </td>
                             <td>
                                 <button type="button" className="btn btn-primary me-2">Editar</button>
                                 <button type="button" className="btn btn-danger ">Eliminar</button>
@@ -120,7 +170,13 @@ const TablaComponent = () => {
                             <td>Frank Marquez</td>
                             <td>Rada</td>
                             <td>5</td>
-                            <td>Ingeniero</td>
+                            <td>Camino Real</td>
+                            <td>3102022130</td>
+                            <td> 
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" />
+                               </div>
+                           </td>
                             <td>
                                 <button type="button" className="btn btn-primary me-2">Editar</button>
                                 <button type="button" className="btn btn-danger ">Eliminar</button>
@@ -132,7 +188,13 @@ const TablaComponent = () => {
                             <td>Frank Marquez</td>
                             <td>Rada</td>
                             <td>5</td>
-                            <td>Ingeniero</td>
+                            <td>Camino Real</td>
+                            <td>3102022130</td>
+                            <td> 
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" />
+                               </div>
+                           </td>
                             <td >
                                 <button type="button" className="btn btn-primary me-2">Editar</button>
                                 <button type="button" className="btn btn-danger ">Eliminar</button>
