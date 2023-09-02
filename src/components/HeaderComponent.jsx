@@ -1,18 +1,25 @@
 import React, { Fragment } from "react";
 import style from '../scss/Header.module.scss';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 const HeaderComponent = () => {
+ const cerarSesion = () =>{
+      Cookies.remove('token')
+ }
     return (
         <Fragment>
             <header className={style.header}>
                 <div>
 
                 </div>
-                <nav>
+                {window.location.pathname !='/' ?  <nav>
+                    
                     <a href="/registro" className={style.nav}>Registro</a >
-                    <a href="/conteo" className={style.nav}>Conteo</a >
                     <a href="/consulta" className={style.nav}>Consulta</a>
-                </nav>
+                    <a href="/conteo" className={style.nav}>Conteo</a >
+                
+                    <a href="/" className={style.nav} onClick={cerarSesion}>Cerrar sesion</a>
+                </nav>:null}
             </header>
         </Fragment>
     )

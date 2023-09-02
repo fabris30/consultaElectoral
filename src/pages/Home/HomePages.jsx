@@ -1,7 +1,13 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import LoginComponent from "../../components/LoginComponent";
+import { refreshToken } from "../../Api/autenticacion";
+
 
 const HomePages = () => {
+   /* useEffect(()=>{
+        refreshToken();
+    },[])*/
+
     return (
         <Fragment>
             <div className="container">

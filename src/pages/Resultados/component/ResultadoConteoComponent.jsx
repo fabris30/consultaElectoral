@@ -14,7 +14,7 @@ const ResultadoConteoComponent =() => {
                             <th scope="col">Lugar de votacion</th>
                             <th scope="col">Numero de la mesa</th>
                             <th scope="col">Votos</th>
-                            <th scope="col">Opciones</th>
+                            <th scope="col">Opciones</th> 
                         </tr>
                     </thead>
                     <tbody className={style.tbody}>

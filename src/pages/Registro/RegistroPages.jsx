@@ -4,6 +4,7 @@ const RegistroPages = () => {
     return (
         <Fragment>
             <div className="container">
+                
                 <RegistroComponent />
             </div>
         </Fragment>
