@@ -67,41 +67,35 @@ const TablaPages = () => {
         .catch(error =>console.error(error));
     },[])
 
-   //metoso de filtro 
-
-   useEffect(()=>{
-    if(selectedOptiongrupo){
-         filtro(selectedOptiongrupo).then(response => setElectores(response?.data?.electores))
-        .catch(error =>console.error(error));
-    }
-   
-    },[selectedOptiongrupo])
-
     useEffect(()=>{
-        if(selectedOptionlugar){
-        filtrolugar(selectedOptiongrupo,selectedOptionlugar).then(response => setElectores(response?.data?.electores))
-            .catch(error =>console.error(error));
-        }
-        },[selectedOptionlugar])
+      filtrodata();
+        },[selectedOptiongrupo,selectedOptionlugar,selectedOptionmesa])
+   //metodo de filtro 
 
-        useEffect(()=>{
-            if(selectedOptionmesa){
-            filtrolugar(selectedOptiongrupo,selectedOptionlugar,selectedOptionmesa).then(response => setElectores(response?.data?.electores))
-                .catch(error =>console.error(error));
-            }
-            },[selectedOptionmesa])
+ const filtrodata=()=>{
+        filtro({grupo:selectedOptiongrupo,lugar: selectedOptionlugar,mesa:selectedOptionmesa}).then(response =>
+             {
+                if(response?.electores){
+                    if(response?.electores.length >0){
+                        setElectores(response?.electores)
+                    } else setElectores(response?.electores)
+
+                }
+                console.log(response?.electores)
+             })
+        .catch(error =>console.error(error));
+ }
     
-        useEffect(()=>{
-       
-            },[electores])
+    
+    
+   
+    
   console.log(selectedOptiongrupo,selectedOptionlugar,selectedOptionmesa);
     return (
         <Fragment>
-
-
             <section>
                 <div className="container py-3">
-                        <BuscarComponent setElector={setElector}/>
+                        <BuscarComponent setElector={setElector} cantidad={elector?.length}/>
                 </div>
             </section>
             <section>
@@ -129,7 +123,7 @@ const TablaPages = () => {
             <section>
                 <div className="container">
                     <div className={Stylegeneral.scroll}>
-                        <TablaComponent datos = {electores}  />
+                        <TablaComponent datos = {electores} elector={elector ?? []}  />
                     </div>
                     
                 </div>

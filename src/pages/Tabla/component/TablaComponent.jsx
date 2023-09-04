@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
 import style from '../../../scss/Tabla.module.scss';
 const TablaComponent = (props) => {
- const {datos} =props;
-
+ const {datos,elector} =props;
+ console.log(elector)
  console.log(datos)
     return (
         <Fragment>
@@ -21,8 +21,8 @@ const TablaComponent = (props) => {
                             <th scope="col">Opciones</th>
                         </tr>
                     </thead>
-                   { <tbody className={style.tbody}>
-                       {datos.map((item,index)=>{
+                    { elector.length === 0 ?   <tbody className={style.tbody}>
+                    {datos.map((item,index)=>{
                         return(
                             <tr>
                             <th scope="row">{index + 1}</th>
@@ -48,6 +48,32 @@ const TablaComponent = (props) => {
                         </tr>
                         )
                        })}
+                       
+                    </tbody>:
+                    <tbody className={style.tbody}>
+                  
+                            <tr>
+                            <th scope="row">{1}</th>
+                            <td>{elector.cedula}</td>
+                            <td>{elector.nombres} {elector.apellidos} </td>
+                            <td>{elector.lugar}</td>
+                            <td>{elector.mesa}</td>
+                            <td>{elector.direccion}</td>
+                            <td>{elector.telefono}</td>
+                            <td> 
+                                <form action="" >
+                                <div className={`form-check`} >
+                                     <input className= {`form-check-input  ${style.checkbox}`} type="checkbox" 
+                                     checked={elector.grupo} />
+                                   </div> 
+                                </form>
+                               
+                           </td>
+                            <td>
+                                <button type="button" className="btn btn-primary me-2">Editar</button>
+                                <button type="button" className="btn btn-danger ">Eliminar</button>
+                            </td>
+                        </tr>
                        
                     </tbody>}
                 </table>

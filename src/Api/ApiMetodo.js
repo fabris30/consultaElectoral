@@ -17,28 +17,28 @@ export const crearElectores =(cedula,nombres,apellidos,lugar,mesa,direccion,tele
 
 // metodo para buscar por la cedula 
 
-export const filtrocc =(cedula)=>{
-
-   return instance.get(`/electores/buscarcc?cedula=${cedula}`);
+export const filtrocc = async(cedula)=>{
+  try {
+    const {data} = await instance.get(`/electores/buscarcc?cedula=${cedula}`);
+    return  data;
+  } catch (error) {
+    return error 
+  }
+ 
 
 };
 
 // metodo para filtra general 
 
-export const filtro =(grupo)=>{
-
-   return instance.get(`/electores/filtro?grupo=${grupo}`);
-
-};
-
-export const filtrolugar =(grupo,lugar)=>{
-
-   return instance.get(`/electores/filtro?grupo=${grupo}&lugar=${lugar}`);
-
-};
-
-export const filtromesa =(grupo,lugar,mesa)=>{
-
-   return instance.get(`/electores/filtro?grupo=${grupo}&lugar=${lugar}&mesa=${mesa}`);
+export const filtro =async (params)=>{
+try {
+   console.log(params)
+    const {data} = await instance.get('/electores/filtro',{params});
+    return data;
+} catch (error) {
+    return error;
+}
+  
 
 };
+
