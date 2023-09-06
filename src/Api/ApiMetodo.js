@@ -24,7 +24,31 @@ export const filtrocc = async(cedula)=>{
   } catch (error) {
     return error 
   }
- 
+
+};
+// metodo para editar
+
+export const editarElector = async(id,cedula,nombres,apellidos,lugar,mesa,direccion,telefono,grupo)=>{
+  
+  try {
+    
+    const {data} = await instance.put(`/electores/editar?id=${id}`,{cedula,nombres,apellidos,lugar,mesa,direccion,telefono,grupo});
+    return data;
+  } catch (error) {
+    return error
+  }
+
+
+}
+// metodo para eliminar
+
+export const eliminarElector = async(cedula)=>{
+  try {
+    const {data} = await instance.delete(`/electores/eliminar?cedula=${cedula}`);
+    return  data;
+  } catch (error) {
+    return error 
+  }
 
 };
 

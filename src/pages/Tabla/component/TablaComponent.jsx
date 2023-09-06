@@ -1,11 +1,75 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState} from "react";
 import style from '../../../scss/Tabla.module.scss';
+import { editarElector, eliminarElector } from "../../../Api/ApiMetodo";
+import Swal from 'sweetalert2';
+import ModalComponent from "./ModalComponent";
+import AlertComponent from "../../../components/AlertComponent";
+
 const TablaComponent = (props) => {
- const {datos,elector} =props;
- console.log(elector)
- console.log(datos)
+    const [id, setId]= useState('');
+    const [cedula, setCedula] = useState('');
+    const [nombre, setNombre] = useState('');
+    const [apellido, setApellido] = useState('');
+    const [selectedOptionlugar, setSelectedOptionlugar] = useState(null);
+    const [selectedOptionmesa, setSelectedOptionmesa] = useState(null);
+    const [direccion, setDireccion] = useState('');
+    const [telefono, setTelefono] = useState('');
+    const [grupo, setGrupo] = useState(false);
+    const [mostraralert, setMostraralert] = useState(false);
+    const [colorAlert, setcolorAlert] = useState('');
+    const [alerta, setAlerta] = useState('');
+
+    //const [editarE, setEditarE]= useState([]);
+    const [show, setShow] = useState(false);
+    const {datos,elector} =props;
+
+    const handleShow = (editarE) =>{
+      
+       setId(editarE._id)
+       setCedula(editarE.cedula)
+       setNombre(editarE.nombres)
+       setApellido(editarE.apellidos)
+       setSelectedOptionlugar(editarE.lugar)
+       setSelectedOptionmesa(editarE.mesa)
+       setDireccion(editarE.direccion)
+       setTelefono(editarE.telefono)
+       console.log('edi',editarE)
+    } 
+
+    
+ const eliminarCedula = (cedula) =>{
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: 'Una vez eliminado, no podrás recuperar esta cc: .'+cedula,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Si el usuario confirma la eliminación, realiza la lógica de eliminación aquí
+             eliminarElector(cedula).then(response =>{
+                 console.log(response)
+                 Swal.fire({
+                    icon: 'success',
+                    title: 'Elemento eliminado',
+                    text: response.msg,
+                  });
+                })
+
+    .catch(error =>console.error(error));
+        }
+      });     
+ }
+ useEffect(()=>{
+
+ },[datos])
     return (
         <Fragment>
+             <div className="d-flex justify-content-center">
+            <AlertComponent mensaje={alerta} mostraralert={mostraralert} styleGrup={`${colorAlert} text-center  w-50`} />
+
+            </div>
             <div className=" table-responsive">
                 <table class="table">
                     <thead>
@@ -42,8 +106,8 @@ const TablaComponent = (props) => {
                                
                            </td>
                             <td>
-                                <button type="button" className="btn btn-primary me-2">Editar</button>
-                                <button type="button" className="btn btn-danger ">Eliminar</button>
+                                <button type="button" className="btn btn-primary me-2" onClick={()=>{handleShow(item);setShow(true)}} >Editar</button>
+                                <button type="button" className="btn btn-danger " onClick={()=> eliminarCedula(item.cedula)} >Eliminar</button>
                             </td>
                         </tr>
                         )
@@ -70,15 +134,41 @@ const TablaComponent = (props) => {
                                
                            </td>
                             <td>
-                                <button type="button" className="btn btn-primary me-2">Editar</button>
-                                <button type="button" className="btn btn-danger ">Eliminar</button>
+                            <button type="button" className="btn btn-primary me-2" onClick={()=>{handleShow(elector);setShow(true)}} >Editar</button>
+                                <button type="button" className="btn btn-danger " onClick={()=> eliminarCedula(elector.cedula)} >Eliminar</button>
                             </td>
                         </tr>
                        
                     </tbody>}
                 </table>
             </div>
-
+          <ModalComponent 
+          id={id}
+          setId={setId}
+          setShow={setShow} 
+          show={show} 
+          setCedula={setCedula}
+          setNombre={setNombre}
+          setApellido={setApellido}
+          setSelectedOptionlugar={setSelectedOptionlugar}
+          setSelectedOptionmesa={setSelectedOptionmesa}
+          setDireccion={setDireccion}
+          setTelefono={setTelefono}
+          setGrupo={setGrupo}
+          cedula={cedula}
+          nombre={nombre}
+          apellido={apellido}
+          selectedOptionlugar={selectedOptionlugar}
+          selectedOptionmesa={selectedOptionmesa}
+          direccion={direccion}
+          telefono={telefono}
+          grupo={grupo}
+          setcolorAlert={setcolorAlert}
+          setAlerta={setAlerta}
+          
+           setMostraralert={setMostraralert}
+          
+           />
         </Fragment>
 
     )

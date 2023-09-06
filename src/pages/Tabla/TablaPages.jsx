@@ -11,6 +11,7 @@ const TablaPages = () => {
  const [selectedOptionmesa, setSelectedOptionmesa] = useState(null);
  const [selectedOptiongrupo, setSelectedOptiongrupo] = useState(null);
  const [elector,setElector]=useState([]);
+ 
  const optionsgrupo = [
     { value: true, label: 'JOSE FELIX' },
     { value: false, label: 'Contrarios' }
@@ -65,7 +66,7 @@ const TablaPages = () => {
     useEffect(()=>{
     getElectores().then(response => setElectores(response?.data?.electores))
         .catch(error =>console.error(error));
-    },[])
+    },[electores,elector])
 
     useEffect(()=>{
       filtrodata();
@@ -87,15 +88,11 @@ const TablaPages = () => {
  }
     
     
-    
-   
-    
-  console.log(selectedOptiongrupo,selectedOptionlugar,selectedOptionmesa);
     return (
         <Fragment>
             <section>
                 <div className="container py-3">
-                        <BuscarComponent setElector={setElector} cantidad={elector?.length}/>
+                        <BuscarComponent elector={elector} setElector={setElector} cantidad={elector?.length}/>
                 </div>
             </section>
             <section>
@@ -106,11 +103,11 @@ const TablaPages = () => {
                         <FilterComponent nombre='Consultar por Grupo'  options={optionsgrupo} capOpcions={setSelectedOptiongrupo} selectedOption={selectedOptiongrupo}/>
                         </div>
                         <div className="col-3">
-                            <FilterComponent nombre='Consultar por Zona'  options={optionslugar} capOpcions={setSelectedOptionlugar} selectedOption={selectedOptionlugar}/>
+                          <FilterComponent nombre='Consultar por Zona'  options={optionslugar} capOpcions={setSelectedOptionlugar} selectedOption={selectedOptionlugar}/>
                         </div>
                         
                         <div className="col-3">
-                             <FilterComponent nombre='Consultar por Meza' options={optionsmesa} capOpcions={setSelectedOptionmesa} selectedOption={selectedOptionmesa}/>
+                             <FilterComponent nombre='Consultar por Mesa' options={optionsmesa} capOpcions={setSelectedOptionmesa} selectedOption={selectedOptionmesa}/>
                         </div>
                        <div className="col-3">
                          <ResultadoComponent cantidad={electores?.length} />

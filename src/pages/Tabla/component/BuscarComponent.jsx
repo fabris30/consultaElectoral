@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import style from '../../../scss/Buscar.module.scss';
 import { filtrocc } from "../../../Api/ApiMetodo";
 import Swal from "sweetalert2";
@@ -13,7 +13,7 @@ const BuscarComponent = (props) => {
     const buscarcc= (e)=>{
 
         e.preventDefault();
-         filtrocc(searchTerm)
+         filtrocc(searchTerm) 
          .then((response) =>{ 
        
              props.setElector(response?.electores);
@@ -31,7 +31,9 @@ const BuscarComponent = (props) => {
         console.log(error)
       });
     }
-    
+    useEffect(()=>{
+
+    },[props.elector])
    
     return (
         <Fragment>
@@ -43,6 +45,7 @@ const BuscarComponent = (props) => {
                     placeholder="Buscar por cedula"
                     value={searchTerm}
                     onChange={handleSearchChange}
+                    required
                     
                 />
                 <button type="submit" className="btn btn-primary">{'Buscar'}</button>   

@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import RegistroComponent from "./component/RegistroComponent";
 const RegistroPages = () => {
+
+  
     return (
         <Fragment>
             <div className="container">
@@ -10,4 +12,4 @@ const RegistroPages = () => {
         </Fragment>
     )
 }
-export default RegistroPages;
+export default RegistroPages; 
