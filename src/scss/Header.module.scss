@@ -3,16 +3,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3vw 2vw;
+    padding: 2.7vw 2vw;
     background-color: rgb(85, 121, 241);
-    color: #fff;
-    z-index: 9999;
+
 }
 
 .logo{
     img{
-         width: 5vw; 
-         height: 'auto';
+         width: 6vw; 
+        
        }
   
 }
@@ -33,6 +32,25 @@
 
 }
 
+.navmovil{
+  opacity: 0;
+  height: 0;
+  transition: all 0.3s;
+}
+
+.navmovil.active{
+    opacity: 1;
+    height: auto;
+    transition: all 0.3s;
+}
+
+.iconmv{
+    font-size: 3rem !important;
+    color: #070707;
+    line-height: 100%;
+   
+}
+
 //big desktop
 @media (min-width: 1920px) {
     .header {
@@ -51,44 +69,54 @@
     }
     .logo{
         img{
-             width: 4rem; 
+             width: 5rem; 
         }
       
     }
     .header {
-        padding: 3rem 1rem;
+        padding: 2.2rem 1rem;
 
     }
 
 }
 
 //only tablet landscape
-@media only screen and (min-width: 768px) and (max-width: 1200px) and (orientation: landscape) {}
+@media only screen and (min-width: 768px) and (max-width: 1200px) and (orientation: landscape) {
 .logo{
     img{
-         width: 4rem; 
+         width: 5rem; 
     }
   
 }
 .header {
-    padding: 3rem 1rem;
+    padding: 2.2rem 1rem;
 
+}
 }
 
 //only phone
 @media (max-width: 576px) {
+
+   
     .header {
-        padding: 1.5rem 1rem;
+        align-items: start;
+        padding: 0.3rem 1rem;
 
     }
 
     .nav {
         font-size: 1rem;
+        position: relative;
+        margin-bottom: 1rem;
     }
-}
 .logo{
     img{
-         width: 3rem; 
-    }
-  
+         width: 4rem; 
+         position: relative;
+         margin-bottom: 1rem;
+    } 
+}
+
+
+
 }
