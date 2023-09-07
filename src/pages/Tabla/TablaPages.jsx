@@ -66,12 +66,12 @@ const TablaPages = () => {
     useEffect(()=>{
     getElectores().then(response => setElectores(response?.data?.electores))
         .catch(error =>console.error(error));
-    },[electores,elector])
-
+    },[])
+   
+   //metodo de filtro 
     useEffect(()=>{
       filtrodata();
         },[selectedOptiongrupo,selectedOptionlugar,selectedOptionmesa])
-   //metodo de filtro 
 
  const filtrodata=()=>{
         filtro({grupo:selectedOptiongrupo,lugar: selectedOptionlugar,mesa:selectedOptionmesa}).then(response =>
@@ -97,19 +97,19 @@ const TablaPages = () => {
             </section>
             <section>
                 <div className="container pb-5">
-                    <div className="row">
+                    <div className="row gy-3">
                    
-                      <div className="col-3">
+                      <div className="col-12 col-sm-6 col-lg-4  col-xl-3">
                         <FilterComponent nombre='Consultar por Grupo'  options={optionsgrupo} capOpcions={setSelectedOptiongrupo} selectedOption={selectedOptiongrupo}/>
                         </div>
-                        <div className="col-3">
+                        <div className="col-12 col-sm-6 col-lg-4  col-xl-3">
                           <FilterComponent nombre='Consultar por Zona'  options={optionslugar} capOpcions={setSelectedOptionlugar} selectedOption={selectedOptionlugar}/>
                         </div>
                         
-                        <div className="col-3">
+                        <div className="col-12 col-sm-6 col-lg-4 col-xl-3 ">
                              <FilterComponent nombre='Consultar por Mesa' options={optionsmesa} capOpcions={setSelectedOptionmesa} selectedOption={selectedOptionmesa}/>
                         </div>
-                       <div className="col-3">
+                       <div className="col-12 col-sm-6 col-lg-4  col-xl-3">
                          <ResultadoComponent cantidad={electores?.length} />
                        </div>
                    

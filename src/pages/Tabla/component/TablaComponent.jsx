@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState} from "react";
 import style from '../../../scss/Tabla.module.scss';
-import { editarElector, eliminarElector } from "../../../Api/ApiMetodo";
+import { editarElector, editarGrupo, eliminarElector } from "../../../Api/ApiMetodo";
 import Swal from 'sweetalert2';
 import ModalComponent from "./ModalComponent";
 import AlertComponent from "../../../components/AlertComponent";
@@ -18,11 +18,16 @@ const TablaComponent = (props) => {
     const [mostraralert, setMostraralert] = useState(false);
     const [colorAlert, setcolorAlert] = useState('');
     const [alerta, setAlerta] = useState('');
-
+    const [datostable, setdatostable] = useState([]);
+    const [electortble, setelectortble] = useState([]);
     //const [editarE, setEditarE]= useState([]);
     const [show, setShow] = useState(false);
     const {datos,elector} =props;
-
+      
+      useEffect(()=>{
+         setdatostable(datos);
+         setelectortble(elector)
+      },[datos,elector,electortble])
     const handleShow = (editarE) =>{
       
        setId(editarE._id)
@@ -35,7 +40,57 @@ const TablaComponent = (props) => {
        setTelefono(editarE.telefono)
        console.log('edi',editarE)
     } 
+// actaulizar 1
 
+
+const grupoCheckboxelector = (id)=> {
+   
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: 'Si Confirma se cambiara de grupo',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No',
+      }).then((result) => {
+        if (result.isConfirmed) {
+            let newdatoselec=elector;
+            newdatoselec.grupo= !newdatoselec.grupo;
+            let cambio=newdatoselec.grupo;
+          editarGrupo(id,cambio).then(response =>{
+                 setelectortble(newdatoselec);
+                })
+
+    .catch(error =>console.error(error));
+        }
+      });
+
+   
+ }
+ const grupoCheckbox = (id,grupo,index)=> {
+   
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: 'Si Confirma se cambiara de grupo',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No',
+      }).then((result) => {
+        if (result.isConfirmed) {
+            let newdatos=[...datos];
+            newdatos[index].grupo=!newdatos[index].grupo;
+            let cambio=!grupo;
+          editarGrupo(id,cambio).then(response =>{
+                 setdatostable(newdatos);
+                })
+
+    .catch(error =>console.error(error));
+        }
+      });
+
+   
+ }
     
  const eliminarCedula = (cedula) =>{
     Swal.fire({
@@ -43,7 +98,7 @@ const TablaComponent = (props) => {
         text: 'Una vez eliminado, no podrás recuperar esta cc: .'+cedula,
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Sí, eliminar',
+        confirmButtonText: 'Sí, Confirmar',
         cancelButtonText: 'Cancelar',
       }).then((result) => {
         if (result.isConfirmed) {
@@ -61,9 +116,8 @@ const TablaComponent = (props) => {
         }
       });     
  }
- useEffect(()=>{
-
- },[datos])
+  
+ 
     return (
         <Fragment>
              <div className="d-flex justify-content-center">
@@ -82,11 +136,11 @@ const TablaComponent = (props) => {
                             <th scope="col">Direccion</th>
                             <th scope="col">Telefono</th>
                             <th scope="col">Grupo JF</th>
-                            <th scope="col">Opciones</th>
+                            <th scope="col" colspan="2">Opciones</th>
                         </tr>
                     </thead>
                     { elector.length === 0 ?   <tbody className={style.tbody}>
-                    {datos.map((item,index)=>{
+                    {datostable.map((item,index)=>{
                         return(
                             <tr>
                             <th scope="row">{index + 1}</th>
@@ -99,16 +153,22 @@ const TablaComponent = (props) => {
                             <td> 
                                 <form action="" >
                                 <div className={`form-check`} >
-                                     <input className= {`form-check-input  ${style.checkbox}`} type="checkbox" 
-                                     checked={item.grupo} />
+                                     <input className= {`form-check-input  ${style.checkbox}`}  type="checkbox" 
+                                     checked={item.grupo}
+                                     onChange={()=>grupoCheckbox(item._id,item.grupo,index)}
+                                      />
                                    </div> 
                                 </form>
                                
                            </td>
                             <td>
-                                <button type="button" className="btn btn-primary me-2" onClick={()=>{handleShow(item);setShow(true)}} >Editar</button>
-                                <button type="button" className="btn btn-danger " onClick={()=> eliminarCedula(item.cedula)} >Eliminar</button>
-                            </td>
+                                <button type="button" className="btn btn-primary " onClick={()=>{handleShow(item);setShow(true)}} >Editar</button>
+                              </td>  
+                              <td>
+                              <button type="button" className="btn btn-danger " onClick={()=> eliminarCedula(item.cedula)} >Eliminar</button>
+
+                              </td>
+                            
                         </tr>
                         )
                        })}
@@ -118,25 +178,31 @@ const TablaComponent = (props) => {
                   
                             <tr>
                             <th scope="row">{1}</th>
-                            <td>{elector.cedula}</td>
-                            <td>{elector.nombres} {elector.apellidos} </td>
-                            <td>{elector.lugar}</td>
-                            <td>{elector.mesa}</td>
-                            <td>{elector.direccion}</td>
-                            <td>{elector.telefono}</td>
+                            <td>{electortble.cedula}</td>
+                            <td>{electortble.nombres} {elector.apellidos} </td>
+                            <td>{electortble.lugar}</td>
+                            <td>{electortble.mesa}</td>
+                            <td>{electortble.direccion}</td>
+                            <td>{electortble.telefono}</td>
                             <td> 
                                 <form action="" >
                                 <div className={`form-check`} >
-                                     <input className= {`form-check-input  ${style.checkbox}`} type="checkbox" 
-                                     checked={elector.grupo} />
+                                     <input className= {`form-check-input  ${style.checkbox}`}  type="checkbox" 
+                                     checked={electortble.grupo} 
+                                     onChange={()=>grupoCheckboxelector(electortble._id)}
+                                     />
                                    </div> 
                                 </form>
                                
                            </td>
                             <td>
                             <button type="button" className="btn btn-primary me-2" onClick={()=>{handleShow(elector);setShow(true)}} >Editar</button>
+                             </td>   
+                             <td>
                                 <button type="button" className="btn btn-danger " onClick={()=> eliminarCedula(elector.cedula)} >Eliminar</button>
-                            </td>
+                             </td>
+                             
+                            
                         </tr>
                        
                     </tbody>}

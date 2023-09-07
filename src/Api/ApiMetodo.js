@@ -28,11 +28,25 @@ export const filtrocc = async(cedula)=>{
 };
 // metodo para editar
 
-export const editarElector = async(id,cedula,nombres,apellidos,lugar,mesa,direccion,telefono,grupo)=>{
+export const editarElector = async(id,cedula,nombres,apellidos,lugar,mesa,direccion,telefono)=>{
   
   try {
     
-    const {data} = await instance.put(`/electores/editar?id=${id}`,{cedula,nombres,apellidos,lugar,mesa,direccion,telefono,grupo});
+    const {data} = await instance.put(`/electores/editar?id=${id}`,{cedula,nombres,apellidos,lugar,mesa,direccion,telefono});
+    return data;
+  } catch (error) {
+    return error
+  }
+
+
+}
+// metodo para editar por el grupo
+
+export const editarGrupo = async(id, grupo)=>{
+  console.log(id, grupo)
+  
+  try {
+    const {data} = await instance.put(`/electores/grupo?id=${id}`,{grupo});
     return data;
   } catch (error) {
     return error

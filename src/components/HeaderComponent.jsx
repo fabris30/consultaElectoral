@@ -8,12 +8,13 @@ const HeaderComponent = () => {
  }
     return (
         <Fragment>
+            
             <header className={style.header}>
-                <div>
-
-                </div>
+            <div className={style.logo}>
+                     <img  src='../../Img/logo.png' alt="LOGOJFL"/>
+             </div>
                 {window.location.pathname !='/' ?  <nav>
-                    
+           
                     <a href="/registro" className={style.nav}>Registro</a >
                     <a href="/consulta" className={style.nav}>Consulta</a>
                     <a href="/conteo" className={style.nav}>Conteo</a >
@@ -21,6 +22,7 @@ const HeaderComponent = () => {
                     <a href="/" className={style.nav} onClick={cerarSesion}>Cerrar sesion</a>
                 </nav>:null}
             </header>
+
         </Fragment>
     )
 }

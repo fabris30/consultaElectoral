@@ -3,12 +3,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4vw 2vw;
+    padding: 3vw 2vw;
     background-color: rgb(85, 121, 241);
     color: #fff;
     z-index: 9999;
 }
 
+.logo{
+    img{
+         width: 5vw; 
+         height: 'auto';
+       }
+  
+}
 .nav {
     color: #070707;
     padding: 1vw 1vw;
@@ -42,20 +49,46 @@
     .nav {
         font-size: 2rem;
     }
+    .logo{
+        img{
+             width: 4rem; 
+        }
+      
+    }
+    .header {
+        padding: 3rem 1rem;
+
+    }
 
 }
 
 //only tablet landscape
 @media only screen and (min-width: 768px) and (max-width: 1200px) and (orientation: landscape) {}
+.logo{
+    img{
+         width: 4rem; 
+    }
+  
+}
+.header {
+    padding: 3rem 1rem;
+
+}
 
 //only phone
 @media (max-width: 576px) {
     .header {
-        padding: 1rem 1rem;
+        padding: 1.5rem 1rem;
 
     }
 
     .nav {
         font-size: 1rem;
     }
+}
+.logo{
+    img{
+         width: 3rem; 
+    }
+  
 }

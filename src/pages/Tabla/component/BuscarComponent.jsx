@@ -35,9 +35,14 @@ const BuscarComponent = (props) => {
 
     },[props.elector])
    
+    const handleSearchClear = () => {
+        // Recarga la página
+        window.location.reload();
+      };
     return (
         <Fragment>
-            <div className="container">
+            <div className="w-100">
+            <button type="button" className="btn btn-primary  d-block d-md-none mb-3" onClick={handleSearchClear}>Mostar lista</button>    
                 <form onSubmit={buscarcc}>
                 <div className={style.div}>
                     <input className={style.buscar}
@@ -46,9 +51,12 @@ const BuscarComponent = (props) => {
                     value={searchTerm}
                     onChange={handleSearchChange}
                     required
-                    
                 />
-                <button type="submit" className="btn btn-primary">{'Buscar'}</button>   
+                <div className="d-flex justify-content-between align-items-center">
+                     <button type="submit" className="btn btn-primary me-4">Buscar</button>   
+                    <button type="button" className="btn btn-primary  d-none d-md-block" onClick={handleSearchClear}>Mostar lista</button>    
+                </div>
+              
                  </div>
                 </form>
          
