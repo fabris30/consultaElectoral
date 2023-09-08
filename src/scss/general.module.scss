@@ -1,4 +1,13 @@
 .scroll{
     max-height: 16rem;
     overflow: auto;
+}  
+
+
+//only phone
+@media (max-width: 576px) {
+    .scroll{
+        max-height: 50rem;
+        overflow: auto;
+    }  
 }

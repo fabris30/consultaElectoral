@@ -48,7 +48,7 @@ function App() {
   return (
     <div>
     
-    <div className='header-fijo'>
+    <div className='header-fijo '>
         <HeaderComponent />
     </div>
     <div className='body'>

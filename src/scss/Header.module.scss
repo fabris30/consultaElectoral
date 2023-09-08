@@ -1,18 +1,19 @@
-.header {
+.header, .headerlogin {
    
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 4vw 2vw;
+    padding: 4.5vw 2vw;
     background-color: rgb(85, 121, 241);
 
 }
-
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
 .logo{
 
     img{
          width: 6vw; 
-       
+        
        }
   
 }
@@ -108,7 +109,7 @@
    
     .header {
         align-items: start;
-        padding: 0.8rem 1rem;
+        padding: 1.5rem 1rem;
 
     }
 

@@ -53,7 +53,7 @@ const LoginComponent = () => {
             <div className={style.loginContainer}>
                 <form className={style.login}>
                     <h2>Login</h2>
-                    <div className='mb-3'>
+                    <div className='mb-3 '>
                         <label
                             htmlFor="usuario"
                             className="form-label">User</label>

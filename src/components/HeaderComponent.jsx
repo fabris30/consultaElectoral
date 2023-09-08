@@ -12,7 +12,10 @@ const HeaderComponent = () => {
     return (
         <Fragment>
             
-        <header className={style.header}>
+        <header >
+        {window.location.pathname !='/' ?  <div className={style.header}>
+
+       
             <div className={style.logo}>
                      <img  src='../../Img/logo.png' alt="LOGOJFL"/>
             <nav className={` d-flex flex-column ${style.navmovil} ${ menu ? style.active : null}`}>
@@ -24,7 +27,7 @@ const HeaderComponent = () => {
                     <a href="/" className={style.nav} onClick={cerarSesion}>Cerrar sesion</a>
                 </nav> 
              </div>
-                {window.location.pathname !='/' ?  
+               
                 <div>
                 <div className= {`d-block d-md-none ${style.iconmv}`} onClick={()=>{setMenu(!menu)}} >
                     <Icon icon='mdi:account-details' />
@@ -38,8 +41,14 @@ const HeaderComponent = () => {
                 
                     <a href="/" className={style.nav} onClick={cerarSesion}>Cerrar sesion</a>
                 </nav>
-              
-                </div>:null}
+                </div>
+                </div>:
+                 <div className={style.headerlogin}>
+                     <div className={`${style.logo} mb-0`}>
+                     <img  src='../../Img/logo.png' alt="LOGOJFL"/>
+             </div>
+                 </div>
+                }
                
             </header>
 
