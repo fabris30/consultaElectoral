@@ -18,7 +18,7 @@ const LoginComponent = () => {
       
         getLogin(username,password).then((response) =>{
             Cookies.set('token', response.data.token, { expires: response.data.expiresIn }); 
-            window.location.href='/registro';
+            window.location.href='/consulta';
            
           })
           .catch(error => {

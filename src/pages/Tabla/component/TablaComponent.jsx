@@ -27,7 +27,7 @@ const TablaComponent = (props) => {
       useEffect(()=>{
          setdatostable(datos);
          setelectortble(elector)
-      },[datos,elector,electortble])
+      },[datos,elector])
     const handleShow = (editarE) =>{
       
        setId(editarE._id)
@@ -54,7 +54,7 @@ const grupoCheckboxelector = (id)=> {
         cancelButtonText: 'No',
       }).then((result) => {
         if (result.isConfirmed) {
-            let newdatoselec=elector;
+            let newdatoselec=electortble;
             newdatoselec.grupo= !newdatoselec.grupo;
             let cambio=newdatoselec.grupo;
           editarGrupo(id,cambio).then(response =>{

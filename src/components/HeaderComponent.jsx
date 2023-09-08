@@ -12,10 +12,10 @@ const HeaderComponent = () => {
     return (
         <Fragment>
             
-            <header className={style.header}>
+        <header className={style.header}>
             <div className={style.logo}>
                      <img  src='../../Img/logo.png' alt="LOGOJFL"/>
-                     <nav className={` d-flex flex-column ${style.navmovil} ${ menu ? style.active : null}`}>
+            <nav className={` d-flex flex-column ${style.navmovil} ${ menu ? style.active : null}`}>
            
                     <a href="/registro" className={style.nav}>Registro</a >
                     <a href="/consulta" className={style.nav}>Consulta</a>

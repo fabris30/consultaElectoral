@@ -112,7 +112,7 @@ const RegistroComponent = () => {
                     <h2>Registro de electores</h2>
                     <div className="row gy-4">
                     <div className="col-12 col-md-6">
-                            <label htmlFor="cedula">Numero de cedula:</label>
+                            <label htmlFor="cedula">* Numero de cedula:</label>
                             <input
                                 type="text"
                                 id="cedula"
@@ -123,7 +123,7 @@ const RegistroComponent = () => {
                             />
                         </div>
                         <div className="col-12 col-md-6">
-                            <label htmlFor="nombre">Nombres:</label>
+                            <label htmlFor="nombre">* Nombres:</label>
                             <input
                                 type="text"
                                 id="nombre"
@@ -134,7 +134,7 @@ const RegistroComponent = () => {
                             />
                         </div>
                         <div className="col-12 col-md-6">
-                            <label htmlFor="apellido">Apellidos:</label>
+                            <label htmlFor="apellido">* Apellidos:</label>
                             <input
                                 type="text"
                                 id="apellido"
@@ -146,13 +146,13 @@ const RegistroComponent = () => {
                         </div>                     
                         <div className="col-12 col-md-6">
                            
-                            <FilterComponent nombre='Select lugar' options={optionslugar} capOpcions={setSelectedOptionlugar} selectedOption={selectedOptionlugar}/>
+                            <FilterComponent nombre='* Select lugar' options={optionslugar} capOpcions={setSelectedOptionlugar} selectedOption={selectedOptionlugar}/>
                             
                         </div>
                         <div className="col-12 col-md-6">
                             
 
-                            <FilterComponent nombre='Select Mesa' options={optionsmesa} capOpcions={setSelectedOptionmesa} selectedOption={selectedOptionmesa}/>
+                            <FilterComponent nombre='* Select Mesa' options={optionsmesa} capOpcions={setSelectedOptionmesa} selectedOption={selectedOptionmesa}/>
                           
                         </div>
                         <div className="col-12 col-md-6">

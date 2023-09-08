@@ -10,9 +10,9 @@ const BuscarComponent = (props) => {
         setSearchTerm(event.target.value);
     };
 
-    const buscarcc= (e)=>{
+    const buscarcc= (event)=>{
 
-        e.preventDefault();
+        event.preventDefault();
          filtrocc(searchTerm) 
          .then((response) =>{ 
        
@@ -42,7 +42,7 @@ const BuscarComponent = (props) => {
     return (
         <Fragment>
             <div className="w-100">
-            <button type="button" className="btn btn-primary  d-block d-md-none mb-3" onClick={handleSearchClear}>Mostar lista</button>    
+            <button type="button" className="btn btn-primary  d-block d-md-none mb-3" onClick={handleSearchClear}>Actualizar Tabla</button>    
                 <form onSubmit={buscarcc}>
                 <div className={style.div}>
                     <input className={style.buscar}
@@ -53,8 +53,8 @@ const BuscarComponent = (props) => {
                     required
                 />
                 <div className="d-flex justify-content-between align-items-center">
-                     <button type="submit" className="btn btn-primary me-4">Buscar</button>   
-                    <button type="button" className="btn btn-primary  d-none d-md-block" onClick={handleSearchClear}>Mostar lista</button>    
+                     <button type="submit" className="btn btn-primary me-4">Buscar Elector</button>   
+                    <button type="button" className="btn btn-primary  d-none d-md-block" onClick={handleSearchClear}>Actualizar Tabla</button>    
                 </div>
               
                  </div>
