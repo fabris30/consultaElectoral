@@ -109,9 +109,9 @@ const RegistroComponent = () => {
             </div>
             <div className={style.Registro}>
                 <form onSubmit={handleSubmit} className={style.formulario}>
-                    <h2>Registro de electores</h2>
+                    <h2 className="text-white">Registro de Electores</h2>
                     <div className="row gy-4">
-                    <div className="col-12 col-md-6">
+                    <div className="col-12 col-md-6 text-white">
                             <label htmlFor="cedula">* Numero de cedula:</label>
                             <input
                                 type="text"
@@ -122,7 +122,7 @@ const RegistroComponent = () => {
                                 required
                             />
                         </div>
-                        <div className="col-12 col-md-6">
+                        <div className="col-12 col-md-6 text-white">
                             <label htmlFor="nombre">* Nombres:</label>
                             <input
                                 type="text"
@@ -133,7 +133,7 @@ const RegistroComponent = () => {
                                 required
                             />
                         </div>
-                        <div className="col-12 col-md-6">
+                        <div className="col-12 col-md-6 text-white">
                             <label htmlFor="apellido">* Apellidos:</label>
                             <input
                                 type="text"
@@ -155,7 +155,7 @@ const RegistroComponent = () => {
                             <FilterComponent nombre='* Select Mesa' options={optionsmesa} capOpcions={setSelectedOptionmesa} selectedOption={selectedOptionmesa}/>
                           
                         </div>
-                        <div className="col-12 col-md-6">
+                        <div className="col-12 col-md-6 text-white">
                             <label htmlFor="direccion">Direccion:</label>
                             <input
                                 type="text"
@@ -165,7 +165,7 @@ const RegistroComponent = () => {
                                 onChange={(e) => setDireccion(e.target.value)}
                             />
                         </div>
-                        <div className="col-12 col-md-6">
+                        <div className="col-12 col-md-6 text-white">
                             <label htmlFor="telefono">Telefono:</label>
                             <input
                                 type="text"

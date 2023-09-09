@@ -45,8 +45,8 @@ const HeaderComponent = () => {
                 </div>:
                  <div className={style.headerlogin}>
                      <div className={`${style.logo} mb-0`}>
-                     <img  src='../../Img/logo.png' alt="LOGOJFL"/>
-             </div>
+                        <img  src='../../Img/logo.png' alt="LOGOJFL"/>
+                     </div>
                  </div>
                 }
                
