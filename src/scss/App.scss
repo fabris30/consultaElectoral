@@ -5,7 +5,15 @@
      z-index: 999;
  }
  .body{
-    margin-top: 14vw;
+    margin-top: 13vw;
+    height: 35vw;
+ 
+ }
+ body{
+    
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 13%, rgba(99,227,252,0.76234243697479) 89%);
+       
  }
 
  //desktop
@@ -29,6 +37,7 @@
 @media (max-width: 576px) {
     .body{
         margin-top: 7rem;
+        height: 46rem;
      }
 
 }

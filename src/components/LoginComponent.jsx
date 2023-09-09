@@ -52,11 +52,11 @@ const LoginComponent = () => {
             </div>
             <div className={style.loginContainer}>
                 <form className={style.login}>
-                    <h2>Login</h2>
+                    <h2 className="text-white">Login</h2>
                     <div className='mb-3 '>
                         <label
                             htmlFor="usuario"
-                            className="form-label">User</label>
+                            className="form-label text-white">User</label>
                         <input
                             type="text"
                             className={'form-control'}
@@ -66,7 +66,7 @@ const LoginComponent = () => {
                     <div className={'mb-3'}>
                         <label
                             htmlFor="password"
-                            className="form-label">Password</label>
+                            className="form-label text-white">Password</label>
                         <input
                             type="password"
                             className={'form-control'}

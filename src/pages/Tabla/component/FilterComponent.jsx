@@ -13,7 +13,7 @@ const FilterComponent = (props) => {
         <Fragment>
            
                 <div className={style.filter}>
-                    <label htmlFor="nombre" className="pb-2 ">{nombre}</label>
+                    <label htmlFor="nombre" className="pb-2 text-white">{nombre}</label>
                     <Select 
                       options={options}
                       onChange={handleOpcionChange}

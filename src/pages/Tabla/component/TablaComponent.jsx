@@ -124,7 +124,7 @@ const grupoCheckboxelector = (id)=> {
             <AlertComponent mensaje={alerta} mostraralert={mostraralert} styleGrup={`${colorAlert} text-center  w-50`} />
 
             </div>
-            <div className=" table-responsive">
+            <div className="table-responsive"> 
                 <table class="table">
                     <thead>
                         <tr>
@@ -132,7 +132,7 @@ const grupoCheckboxelector = (id)=> {
                             <th scope="col">Cedula</th>
                             <th scope="col">Nombres y Apellidos</th>
                             <th scope="col">Zona</th>
-                            <th scope="col"># mesa</th>
+                            <th scope="col">#mesa</th>
                             <th scope="col">Direccion</th>
                             <th scope="col">Telefono</th>
                             <th scope="col">Grupo JF</th>
@@ -207,6 +207,8 @@ const grupoCheckboxelector = (id)=> {
                        
                     </tbody>}
                 </table>
+              
+                
             </div>
           <ModalComponent 
           id={id}
