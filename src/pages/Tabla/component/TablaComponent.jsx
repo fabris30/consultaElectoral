@@ -125,7 +125,7 @@ const grupoCheckboxelector = (id)=> {
 
             </div>
             <div className="table-responsive"> 
-                <table class="table">
+                <table class="table" >
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -207,8 +207,6 @@ const grupoCheckboxelector = (id)=> {
                        
                     </tbody>}
                 </table>
-              
-                
             </div>
           <ModalComponent 
           id={id}

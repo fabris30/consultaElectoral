@@ -100,14 +100,14 @@ const TablaPages = () => {
                     <div className="row gy-3">
                    
                       <div className="col-12 col-sm-6 col-lg-4  col-xl-3">
-                        <FilterComponent nombre='Consultar por Grupo'  options={optionsgrupo} capOpcions={setSelectedOptiongrupo} selectedOption={selectedOptiongrupo}/>
+                        <FilterComponent nombre='Consultar por Grupo'  options={optionsgrupo} styleGrupo="text-white" capOpcions={setSelectedOptiongrupo} selectedOption={selectedOptiongrupo}/>
                         </div>
                         <div className="col-12 col-sm-6 col-lg-4  col-xl-3">
-                          <FilterComponent nombre='Consultar por Zona'  options={optionslugar} capOpcions={setSelectedOptionlugar} selectedOption={selectedOptionlugar}/>
+                          <FilterComponent nombre='Consultar por Zona'  options={optionslugar} styleGrupo="text-white" capOpcions={setSelectedOptionlugar} selectedOption={selectedOptionlugar}/>
                         </div>
                         
                         <div className="col-12 col-sm-6 col-lg-4 col-xl-3 ">
-                             <FilterComponent nombre='Consultar por Mesa' options={optionsmesa} capOpcions={setSelectedOptionmesa} selectedOption={selectedOptionmesa}/>
+                             <FilterComponent nombre='Consultar por Mesa' options={optionsmesa} styleGrupo="text-white" capOpcions={setSelectedOptionmesa} selectedOption={selectedOptionmesa}/>
                         </div>
                        <div className="col-12 col-sm-6 col-lg-4  col-xl-3">
                          <ResultadoComponent cantidad={electores?.length} />

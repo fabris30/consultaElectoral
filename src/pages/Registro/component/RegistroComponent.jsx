@@ -146,13 +146,13 @@ const RegistroComponent = () => {
                         </div>                     
                         <div className="col-12 col-md-6">
                            
-                            <FilterComponent nombre='* Select lugar' options={optionslugar} capOpcions={setSelectedOptionlugar} selectedOption={selectedOptionlugar}/>
+                            <FilterComponent nombre='* Select lugar' options={optionslugar} styleGrupo="text-white" capOpcions={setSelectedOptionlugar} selectedOption={selectedOptionlugar}/>
                             
                         </div>
                         <div className="col-12 col-md-6">
                             
 
-                            <FilterComponent nombre='* Select Mesa' options={optionsmesa} capOpcions={setSelectedOptionmesa} selectedOption={selectedOptionmesa}/>
+                            <FilterComponent nombre='* Select Mesa' options={optionsmesa} styleGrupo="text-white" capOpcions={setSelectedOptionmesa} selectedOption={selectedOptionmesa}/>
                           
                         </div>
                         <div className="col-12 col-md-6 text-white">
