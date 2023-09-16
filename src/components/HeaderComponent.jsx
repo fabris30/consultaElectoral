@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
 import style from '../scss/Header.module.scss';
-import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 const HeaderComponent = () => {
 
     const [menu,setMenu]=useState(false)
@@ -11,7 +11,7 @@ const HeaderComponent = () => {
  }
     return (
         <Fragment>
-            
+           
         <header >
         {window.location.pathname !='/' ?  <div className={style.header}>
 
@@ -33,14 +33,16 @@ const HeaderComponent = () => {
                     <Icon icon='mdi:account-details' />
            
                 </div>
-               <nav className="d-none d-md-block">
-           
+
+                  <nav className="d-none d-md-block">
+        
                     <a href="/registro" className={style.nav}>Registro</a >
                     <a href="/consulta" className={style.nav}>Consulta</a>
                     <a href="/conteo" className={style.nav}>Conteo</a >
                 
                     <a href="/" className={style.nav} onClick={cerarSesion}>Cerrar sesion</a>
-                </nav>
+                   </nav>
+            
                 </div>
                 </div>:
                  <div className={style.headerlogin}>

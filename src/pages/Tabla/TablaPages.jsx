@@ -124,7 +124,7 @@ const TablaPages = () => {
                     </div>
                     
                 </div>
-            </section>
+            </section> 
 
         </Fragment>
     )
