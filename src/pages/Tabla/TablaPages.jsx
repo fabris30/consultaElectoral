@@ -85,7 +85,7 @@ const TablaPages = () => {
                 console.log(response?.electores)
              })
         .catch(error =>console.error(error));
- }
+ } 
     
     
     return (

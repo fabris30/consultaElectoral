@@ -25,6 +25,29 @@ export const editarconteo = async(id,candidato,lugar,mesa,votos)=>{
     } catch (error) {
       return error
     }
-  
-  
   }
+
+  // metodo para eliminar
+
+export const eliminarvotos = async(id)=>{
+  try {
+    const {data} = await instance.delete(`/conteo?id=${id}`);
+    return  data;
+  } catch (error) {
+    return error 
+  }
+
+};
+
+// metodo para filtra general 
+
+export const filtrovotos =async (params)=>{
+  try {
+     console.log(params)
+      const {data} = await instance.get('/conteo/filtro',{params});
+      return data;
+  } catch (error) {
+      return error;
+  }
+    
+  };

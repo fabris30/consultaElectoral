@@ -98,7 +98,7 @@ const grupoCheckboxelector = (id)=> {
         text: 'Una vez eliminado, no podrás recuperar esta cc: .'+cedula,
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Sí, Confirmar',
+        confirmButtonText: 'Sí, Confirmar', 
         cancelButtonText: 'Cancelar',
       }).then((result) => {
         if (result.isConfirmed) {

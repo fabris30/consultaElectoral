@@ -2,6 +2,9 @@ import React, { Fragment, useState } from "react";
 import style from '../../../scss/Tabla.module.scss';
 import ModalconteoComponent from "./ModalconteoComponent";
 import AlertComponent from "../../../components/AlertComponent";
+import FilterComponent from "../../Tabla/component/FilterComponent";
+import Swal from "sweetalert2";
+import { eliminarvotos } from "../../../Api/ApiConteo";
 const TablaConteo =(props)=>{
     const [show, setShow] = useState(false);
     const {datos,setconteo}=props;
@@ -21,12 +24,41 @@ const TablaConteo =(props)=>{
         setSelectedOptionmesa(editar.mesa)
          setVotos(editar.votos)
      } 
+
+     const eliminarR = (id) =>{
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: 'Una vez eliminado, no podrás recuperar este registro: .',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, Confirmar', 
+            cancelButtonText: 'Cancelar',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Si el usuario confirma la eliminación, realiza la lógica de eliminación aquí
+              eliminarvotos(id).then(response =>{
+                     console.log(response)
+                     Swal.fire({
+                        icon: 'success',
+                        title: 'Elemento eliminado',
+                        text: response.msg,
+                      });
+                    })
+    
+        .catch(error =>console.error(error));
+            }
+          });     
+     }
+    
     return(
-        <Fragment>
+        <Fragment>  
+
+
             <div className="d-flex justify-content-center">
             <AlertComponent mensaje={alerta} mostraralert={mostraralert} styleGrup={`${colorAlert} text-center  w-50`} />
 
             </div>
+           
       <div className="table-responsive"> 
                 <table class="table" >
                     <thead>
@@ -53,7 +85,7 @@ const TablaConteo =(props)=>{
                                 <button type="button" className="btn btn-primary " onClick={()=>{handleShow(item);setShow(true)}} >Editar</button>
                               </td>  
                               <td>
-                              <button type="button" className="btn btn-danger " >Eliminar</button>
+                              <button type="button" className="btn btn-danger " onClick={()=> eliminarR(item._id)}>Eliminar</button>
 
                               </td>
                             
