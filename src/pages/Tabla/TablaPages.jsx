@@ -103,7 +103,7 @@ const TablaPages = () => {
                 </div>
             </section>
             <section>
-                <div className="container pb-5">
+                <div className="container pb-3">
                     <div className="row gy-3">
                    
                       <div className="col-12 col-sm-6 col-lg-4  col-xl-3">
