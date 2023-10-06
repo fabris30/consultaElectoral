@@ -5,13 +5,15 @@ import ResultadoComponent from "./component/ResultadoComponent";
 import TablaComponent from "./component/TablaComponent";
 import { filtro, filtrolugar, getElectores } from "../../Api/ApiMetodo";
 import Stylegeneral from '../../scss/general.module.scss'
+import PaginadorComponent from "./component/PaginadorComponent";
 const TablaPages = () => {
  const [electores,setElectores]=useState([]);
  const [selectedOptionlugar, setSelectedOptionlugar] = useState(null);
  const [selectedOptionmesa, setSelectedOptionmesa] = useState(null);
  const [selectedOptiongrupo, setSelectedOptiongrupo] = useState(null);
  const [elector,setElector]=useState([]);
- 
+ const [currentPage, setCurrentPage] = useState(0);
+  const perPage = 20;
  const optionsgrupo = [
     { value: true, label: 'JOSE FELIX' },
     { value: false, label: 'Contrarios' }
@@ -64,7 +66,11 @@ const TablaPages = () => {
     { value: '30', label: 'mesa 30'}
   ]
     useEffect(()=>{
-    getElectores().then(response => setElectores(response?.data?.electores))
+    getElectores().then(response => {
+   
+      setElectores(response?.data?.electores)
+      console.log(response?.data.electores)
+    })
         .catch(error =>console.error(error));
     },[])
    
@@ -80,14 +86,15 @@ const TablaPages = () => {
                     if(response?.electores.length >0){
                         setElectores(response?.electores)
                     } else setElectores(response?.electores)
-
+                    console.log(response?.electores)
                 }
-                console.log(response?.electores)
+              
              })
         .catch(error =>console.error(error));
  } 
-    
-    
+    const pageCount= Math.ceil(electores.length / perPage);
+    const offset = currentPage * perPage;
+   const datosOptimizados=electores.slice(offset,offset + perPage);
     return (
         <Fragment>
             <section>
@@ -116,11 +123,16 @@ const TablaPages = () => {
                     </div>
                 </div>
             </section>
+            <section>
+              <div className="container">
+                 <PaginadorComponent pageCount={pageCount} setCurrentPage={setCurrentPage} />
+              </div>
+            </section>
 
             <section>
                 <div className="container">
                     <div className={Stylegeneral.scroll}>
-                        <TablaComponent datos = {electores} elector={elector ?? []}  />
+                        <TablaComponent datos = {datosOptimizados} elector={elector ?? []}  />
                     </div>
                     
                 </div>

@@ -2,7 +2,7 @@ import instance from "../config";
 
 // metodo para votantes 
 
-export const getElectores =()=>{
+export const getElectores = async ()=>{
 
    return instance.get('/electores');
 
