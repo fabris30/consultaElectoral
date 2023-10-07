@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState} from "react";
 import style from '../../../scss/Tabla.module.scss';
-import { editarElector, editarGrupo, eliminarElector } from "../../../Api/ApiMetodo";
+import { editarElector, editarGrupo, eliminarElector, filtrocc } from "../../../Api/ApiMetodo";
 import Swal from 'sweetalert2';
 import ModalComponent from "./ModalComponent";
 import AlertComponent from "../../../components/AlertComponent";
@@ -43,7 +43,7 @@ const TablaComponent = (props) => {
 // actaulizar 1
 
 
-const grupoCheckboxelector = (id)=> {
+const grupoCheckboxelector = (id,cc)=> {
    
     Swal.fire({
         title: '¿Estás seguro?',
@@ -62,8 +62,15 @@ const grupoCheckboxelector = (id)=> {
                 })
 
     .catch(error =>console.error(error));
-        }
-      });
+
+    filtrocc(cc) 
+    .then((response) =>{ setelectortble(response?.electores);})
+       
+    .catch(error => {
+        console.log(error)
+     }); 
+    }
+    });
 
    
  }
@@ -189,7 +196,7 @@ const grupoCheckboxelector = (id)=> {
                                 <div className={`form-check`} >
                                      <input className= {`form-check-input  ${style.checkbox}`}  type="checkbox" 
                                      checked={electortble.grupo} 
-                                     onChange={()=>grupoCheckboxelector(electortble._id)}
+                                     onChange={()=>grupoCheckboxelector(electortble._id, electortble.cedula)}
                                      />
                                    </div> 
                                 </form>

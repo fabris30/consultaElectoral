@@ -33,6 +33,13 @@
      }
 }
 
+//Tablet
+@media (max-width: 767px) {
+    .body{
+        margin-top: 7.5rem;
+     }
+
+}
 //only phone
 @media (max-width: 576px) {
     .body{

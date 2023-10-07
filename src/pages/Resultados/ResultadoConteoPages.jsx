@@ -120,10 +120,10 @@ if(voto.candidato=="nulo"){
     <section>
         <div className="container pb-2">
             <div className="row gy-4">
-                     <div className="col-12 col-md-4">
+                     {/*<div className="col-12 col-md-4">
                         <FilterComponent nombre='* Select Candidato' options={opcionCandidato} styleGrupo="text-white" capOpcions={setSelectecandidato} selectedOption={selectecandidato}/> 
                             
-                        </div>
+    </div>*/}
                         <div className="col-12 col-md-4">
 
                             <FilterComponent nombre='* Select lugar' options={optionslugar} styleGrupo="text-white" capOpcions={setSelectedOptionlugar} selectedOption={selectedOptionlugar}/> 

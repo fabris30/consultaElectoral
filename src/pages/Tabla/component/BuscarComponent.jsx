@@ -13,7 +13,7 @@ const BuscarComponent = (props) => {
     const buscarcc= (event)=>{
 
         event.preventDefault();
-         filtrocc(searchTerm) 
+        filtrocc(searchTerm) 
          .then((response) =>{ 
        
              props.setElector(response?.electores);
@@ -24,7 +24,8 @@ const BuscarComponent = (props) => {
                   })
                   setMsg(response.msg)
              }
-             console.log(response.msg)  
+
+        
       })
 
       .catch(error => {
@@ -39,10 +40,14 @@ const BuscarComponent = (props) => {
         // Recarga la página
         window.location.reload();
       };
+
+  
     return (
         <Fragment>
             <div className="w-100">
-            <button type="button" className="btn btn-primary  d-block d-md-none mb-3" onClick={handleSearchClear}>Actualizar Tabla</button>    
+            <button type="button" className="btn btn-primary  d-block d-sm-none mb-3" onClick={handleSearchClear}>Actualizar Tabla</button>    
+              <div className={style.conjuntoBtn}>
+              
                 <form onSubmit={buscarcc}>
                 <div className={style.div}>
                     <input className={style.buscar}
@@ -52,14 +57,19 @@ const BuscarComponent = (props) => {
                     onChange={handleSearchChange}
                     required
                 />
-                <div className="d-flex justify-content-between align-items-center">
-                     <button type="submit" className="btn btn-primary me-4">Buscar Elector</button>   
-                    <button type="button" className="btn btn-primary  d-none d-md-block" onClick={handleSearchClear}>Actualizar Tabla</button>    
+                <div className="d-flex justify-content-between align-items-center me-4">
+                     <button type="submit" className="btn btn-primary me-4">Buscar o Actualizar</button>   
+                    <button type="button" className="btn btn-primary  d-none d-sm-block" onClick={handleSearchClear}>Actualizar Tabla</button>    
                 </div>
-              
+            
                  </div>
                 </form>
-         
+                  <div className="d-flex justify-content-between align-items-center pt-3 pt-lg-0">
+                     <a href="https://eleccionescolombia.registraduria.gov.co/Document" className="btn btn-primary me-4" >Consultar lugar votacion</a>   
+                    <button type="button" className="btn btn-primary d-none " >Descargar</button>    
+                </div>
+
+                </div>  
             </div>
         
             

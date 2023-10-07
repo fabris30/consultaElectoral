@@ -2,13 +2,15 @@ import React, { Fragment, useState } from "react";
 import style from '../scss/Header.module.scss';
 import Cookies from "js-cookie";
 import { Icon } from "@iconify/react";
-import { Link } from "react-router-dom";
 const HeaderComponent = () => {
 
     const [menu,setMenu]=useState(false)
  const cerarSesion = () =>{
       Cookies.remove('token')
  }
+
+
+ 
     return (
         <Fragment> 
            
@@ -35,7 +37,7 @@ const HeaderComponent = () => {
                 </div>
 
                   <nav className="d-none d-md-block">
-        
+                  
                     <a href="/registro" className={style.nav}>Registro</a >
                     <a href="/consulta" className={style.nav}>Consulta</a>
                     <a href="/conteo" className={style.nav}>Conteo</a >

@@ -13,21 +13,47 @@
     
 }
 
+.conjuntoBtn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 //desktop
 @media (min-width: 1200px) {}
 
 //only tablet portrait
 @media only screen and (min-width: 768px) and (max-width: 1200px) and (orientation: portrait) {
-  
+    .conjuntoBtn{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+    }
 
 }
 
 //only tablet landscape
 @media only screen and (min-width: 768px) and (max-width: 1200px) and (orientation: landscape) {}
 
+@media (max-width: 767px) {
+   
+    .conjuntoBtn{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+    }
+}
 //only phone
 @media (max-width: 576px) {
     .buscar{
         font-size: 0.8rem;
+    }
+    .conjuntoBtn{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
     }
 }

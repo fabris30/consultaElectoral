@@ -109,7 +109,7 @@ const RegistroConteoComponent = () => {
         <Fragment>
             <div className={style.Registro}>
                 <form onSubmit={handleSubmit} className={style.formulario}>
-                    <h2>Registro de Votos</h2>
+                    <h2 className="text-white">Registro de Votos</h2>
                     <div className="row gy-4">
                         <div className="col-12 col-md-6">
                         <FilterComponent nombre='* Select Candidato' options={opcionCandidato} styleGrupo="text-white" capOpcions={setCandidato} selectedOption={candidato}/> 
