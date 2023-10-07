@@ -126,7 +126,7 @@ const TablaPages = () => {
             </section>
             <section>
               <div className="container">
-                 <PaginadorComponent pageCount={pageCount} setCurrentPage={setCurrentPage} />
+                 {pageCount > 0 ? <PaginadorComponent pageCount={pageCount} setCurrentPage={setCurrentPage} />:null}
               </div>
             </section>
 
