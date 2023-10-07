@@ -95,6 +95,7 @@ const TablaPages = () => {
     const pageCount= Math.ceil(electores.length / perPage);
     const offset = currentPage * perPage;
    const datosOptimizados=electores.slice(offset,offset + perPage);
+   console.log(pageCount)
     return (
         <Fragment>
             <section>
@@ -125,7 +126,7 @@ const TablaPages = () => {
             </section>
             <section>
               <div className="container">
-                 <PaginadorComponent pageCount={pageCount} setCurrentPage={setCurrentPage} />
+                 {pageCount > 1 ? <PaginadorComponent pageCount={pageCount} setCurrentPage={setCurrentPage} />:null}
               </div>
             </section>
 

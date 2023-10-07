@@ -41,7 +41,18 @@ const BuscarComponent = (props) => {
         window.location.reload();
       };
 
-  
+     /* const handleGeneratePDF = () => {
+        const pdfData = PDFGenerator(); // Genera el PDF en formato ArrayBuffer
+        const blob = new Blob([pdfData], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'mi_archivo.pdf';
+        a.click();
+    URL.revokeObjectURL(url);
+      };
+      */
     return (
         <Fragment>
             <div className="w-100">
@@ -66,7 +77,8 @@ const BuscarComponent = (props) => {
                 </form>
                   <div className="d-flex justify-content-between align-items-center pt-3 pt-lg-0">
                      <a href="https://eleccionescolombia.registraduria.gov.co/Document" className="btn btn-primary me-4" >Consultar lugar votacion</a>   
-                    <button type="button" className="btn btn-primary d-none " >Descargar</button>    
+                    <button type="button" className="btn btn-primary d-none" >Descargar Pdf</button>    
+                    
                 </div>
 
                 </div>  
