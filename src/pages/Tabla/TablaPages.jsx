@@ -69,7 +69,7 @@ const TablaPages = () => {
     getElectores().then(response => {
    
       setElectores(response?.data?.electores)
-      console.log(response?.data.electores)
+      
     })
         .catch(error =>console.error(error));
     },[])
@@ -86,7 +86,7 @@ const TablaPages = () => {
                     if(response?.electores.length >0){
                         setElectores(response?.electores)
                     } else setElectores(response?.electores)
-                    console.log(response?.electores)
+                    
                 }
               
              })

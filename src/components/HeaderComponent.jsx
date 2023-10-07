@@ -10,7 +10,7 @@ const HeaderComponent = () => {
       Cookies.remove('token')
  }
     return (
-        <Fragment>
+        <Fragment> 
            
         <header >
         {window.location.pathname !='/' ?  <div className={style.header}>
