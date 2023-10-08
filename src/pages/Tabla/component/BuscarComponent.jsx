@@ -76,7 +76,7 @@ const BuscarComponent = (props) => {
                  </div>
                 </form>
                   <div className="d-flex justify-content-between align-items-center pt-3 pt-lg-0">
-                     <a href="https://eleccionescolombia.registraduria.gov.co/Document" className="btn btn-primary me-4" >Consultar lugar votacion</a>   
+                     <a href="https://eleccionescolombia.registraduria.gov.co/Document" target="_blank" className="btn btn-primary me-4" >Consultar lugar votacion</a>   
                     <button type="button" className="btn btn-primary d-none" >Descargar Pdf</button>    
                     
                 </div>
