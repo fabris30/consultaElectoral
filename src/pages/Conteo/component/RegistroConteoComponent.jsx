@@ -1,9 +1,10 @@
 import React, { Fragment, useState } from "react";
 import style from '../../../scss/Conteo.module.scss';
 import FilterComponent from "../../Tabla/component/FilterComponent";
-import { crearConteo } from "../../../Api/ApiConteo";
+import { crearConteo, filtrovotos } from "../../../Api/ApiConteo";
 import AlertComponent from "../../../components/AlertComponent";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const RegistroConteoComponent = () => {
 
@@ -72,36 +73,51 @@ const RegistroConteoComponent = () => {
       const handleSubmit = (event) => {
         event.preventDefault();
         // Aquí puedes realizar alguna acción con los datos del formulario, como enviarlos a un servidor.
-        crearConteo(candidato,selectedOptionlugar,selectedOptionmesa,votos).then((response) =>{
-                setAlerta(response.data.msg)
-                setMostraralert(true);
-                setVotos('');
-                setcolorAlert('alert-success');
-                setTimeout(() => {
-                 setMostraralert(false);
-
-               }, 3000); 
-          })
+        filtrovotos({candidato:candidato,lugar: selectedOptionlugar,mesa:selectedOptionmesa}).then(response =>
+          {
+             if(response){
+                 if(response?.length >0){
+                  Swal.fire({
+                    icon: 'error',
+                    text: 'Existe el Registro'
+                  })
+                  
+                 } else{
+                  crearConteo(candidato,selectedOptionlugar,selectedOptionmesa,votos).then((response) =>{
+                    setAlerta(response.data.msg)
+                    setMostraralert(true);
+                    setVotos('');
+                    setcolorAlert('alert-success');
+                    setTimeout(() => {
+                     setMostraralert(false);
     
-          .catch(error => {
-            // Manejar el error aquí
-            if (error.response) {
-              // Error de respuesta del servidor
-              setMostraralert(true);
-              setAlerta(error.response.data.error);
-              setcolorAlert('alert-danger');
-              setTimeout(() => {
-                setMostraralert(false);
-              }, 3000); 
-            } else if (error.request) {
-              // Error de solicitud (por ejemplo, no se pudo hacer la solicitud al servidor)
-              console.error('Error de solicitud:', error.request);
-            } else {
-              // Otros errores
-              console.error('Error:', error.message);
-            }
-      
-          });
+                   }, 3000); 
+              })
+        
+              .catch(error => {
+                // Manejar el error aquí
+                if (error.response) {
+                  // Error de respuesta del servidor
+                  setMostraralert(true);
+                  setAlerta(error.response.data.error);
+                  setcolorAlert('alert-danger');
+                  setTimeout(() => {
+                    setMostraralert(false);
+                  }, 3000); 
+                } else if (error.request) {
+                  // Error de solicitud (por ejemplo, no se pudo hacer la solicitud al servidor)
+                  console.error('Error de solicitud:', error.request);
+                } else {
+                  // Otros errores
+                  console.error('Error:', error.message);
+                }
+          
+              });
+                 }
+             }
+          })
+     .catch(error =>console.error(error));
+       
     };
  
     return (
